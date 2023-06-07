@@ -9,5 +9,5 @@
 	//echo $total_cmd . '</br>';
 	
 	$result = shell_exec($total_cmd);
-	echo "Arsch";
+	echo $result . "Fettsack";
 ?>
