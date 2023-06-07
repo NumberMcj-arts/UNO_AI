@@ -1,0 +1,4 @@
+current_log/*
+log/*
+plots/*
+!plots/
