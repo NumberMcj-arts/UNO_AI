@@ -2,3 +2,5 @@ current_log/*
 log/*
 plots/*
 !plots/
+*.pyc
+*.txt
