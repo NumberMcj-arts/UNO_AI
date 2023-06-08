@@ -276,36 +276,24 @@ class UNOGame:
     
     def get_status(self):
         
-        status = ""
+        status = {}
     
         if (len(self.__players) > 0):
         
             curr_player_idx = self.__state.get_curr_player_idx()
             curr_player = self.__players[curr_player_idx]
             
-            turn_information = {}
-            turn_information['state_before'] = self.__state.to_dict()
-            turn_information['card_on_top_before'] = \
+            status['current_player'] = curr_player
+            
+            status['state_before'] = self.__state.to_dict()
+            status['card_on_top'] = \
             self.__card_actions_container\
                 .get_card_on_index(self.__cards[0])
             
             if (not self.__only_AIs):
-                status += self.__state.to_string_compact()
-                status += ("Card on Top: " + turn_information['card_on_top_before'])
-                status += (20 * "-")
+                status.update(self.__state.to_dict())
             
-            for player in self.__players:
-                cards = player.cards_on_hand_to_string_list()
-                if (not self.__only_AIs):
-                    if (curr_player.get_name() == player.get_name()):
-                        status += ("->")
-                    status += ("Player " + player.get_name() + ": " + str(len(cards)) + " cards")
-                    if (player.is_human_player()):
-                        status += (player.cards_on_hand_to_string())
-                turn_information[player.get_name() + "_before"]\
-                = cards
-            
-            status += curr_player.get_status(self.__state)
+            status['curr_player_state'] = curr_player.get_status(self.__state)
             
         return status
     
