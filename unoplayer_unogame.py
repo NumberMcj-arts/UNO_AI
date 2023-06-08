@@ -138,16 +138,18 @@ class UNOPlayer:
         .determine_possible_action_idxs(state,\
                                        self.__card_idxs_on_hand)
     
-        status = ""
+        status = {'possible_actions': [],
+            'cards_on_hand': self.cards_on_hand_to_string_list()
+        }
         
         if (self.is_human_player()):
             for i, possible_action in enumerate(possible_action_idxs):
-                status += "Type " + str(i)
-                status += " for "
-                status += self.__card_actions_container\
+                action_name = self.__card_actions_container\
                 .get_action_on_index(possible_action) + "\n"
-        else:
-            status = "AI muhahah"
+                
+                status['possible_actions'].append(action_name)
+        #else:
+        #    status = "AI muhahah"
             
             
         return status
