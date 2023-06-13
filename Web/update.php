@@ -12,5 +12,6 @@
 	//echo $total_cmd . '</br>';
 	
 	//$result = shell_exec($total_cmd);
-	echo $json_data["CurrentPlayerIndex"];
+	//echo $json_data["CurrentPlayerIndex"];
+	echo $json_data;
 ?>

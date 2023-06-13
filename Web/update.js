@@ -16,7 +16,11 @@ function update(){
 //			b: 'zack'
 //		}
 	}).done(function(o) {
-		document.getElementById('state').value = o;
+		const game_state = JSON.parse(o);
+		const test = JSON.parse('{"a": 13, "b": 5}')
+		document.getElementById('state').value = test[0];
+		//alert(game_state.current_player)
+		//alert("Test")
 	});
 }
 
