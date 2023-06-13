@@ -294,6 +294,14 @@ class UNOGame:
             
             status['curr_player_state'] = curr_player.get_status(self.__state)
             
+            players_cards_in_hand = []
+            for player in self.__players:
+                player_cards_in_hand = {}
+                player_cards_in_hand['player_name'] = player.get_name()
+                player_cards_in_hand['nr_cards_in_hand'] = len(player.cards_on_hand_to_string_list())
+                players_cards_in_hand.append(player_cards_in_hand)
+            status['players_cards_in_hand'] = players_cards_in_hand
+            
         return status
     
     def process_turn(self, log=None, ai_log=None):
