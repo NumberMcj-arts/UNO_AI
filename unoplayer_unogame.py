@@ -285,7 +285,6 @@ class UNOGame:
             
             status['current_player'] = curr_player.get_name()
             
-            status['state_before'] = self.__state.to_dict()
             status['card_on_top'] = \
             self.__card_actions_container\
                 .get_card_on_index(self.__cards[0])
