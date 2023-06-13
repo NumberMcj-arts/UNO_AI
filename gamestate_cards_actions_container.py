@@ -175,7 +175,7 @@ class CardActionsPoolContainer:
             for index in indices:
                 action_index_keyval = str(index)
                 self.__action_2_cards[action_index_keyval]\
-                = indices.copy()
+                = indices[:]
         self.__actions_pool.append("take:cards:from_stack")
         inserted_list_idx = len(self.__actions_pool) - 1
         self.__action_2_cards[str(inserted_list_idx)] = []

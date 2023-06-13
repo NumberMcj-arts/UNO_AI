@@ -283,7 +283,7 @@ class UNOGame:
             curr_player_idx = self.__state.get_curr_player_idx()
             curr_player = self.__players[curr_player_idx]
             
-            status['current_player'] = curr_player
+            status['current_player'] = curr_player.get_name()
             
             status['state_before'] = self.__state.to_dict()
             status['card_on_top'] = \
